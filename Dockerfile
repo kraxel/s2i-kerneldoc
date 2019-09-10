@@ -11,7 +11,7 @@ USER root
 
 RUN yum install -y make gcc gcc-c++ binutils bc \
                    glibc-devel openssl-devel \
-                   python3 python3-libs python3-pip
+                   python3 python3-libs python3-pip && \
     yum clean all -y
 
 RUN for file in /usr/libexec/s2i/*; do cp -v $file ${file}.httpd; done
