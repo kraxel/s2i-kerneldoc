@@ -1,0 +1,28 @@
+#!/bin/bash -e
+#
+# S2I assemble script for the 'kraxel/s2i-jekyll' image.
+# The 'assemble' script builds your application source so that it is ready to run.
+#
+# For more information refer to the documentation:
+#	https://github.com/openshift/source-to-image/blob/master/docs/builder_image.md
+#
+
+# If the 'kraxel/s2i-jekyll' assemble script is executed with the '-h' flag, print the usage.
+if [[ "$1" == "-h" ]]; then
+	exec /usr/libexec/s2i/usage
+fi
+
+set -e
+
+echo "---> Enabling s2i support in httpd24 image ..."
+source ${HTTPD_CONTAINER_SCRIPTS_PATH}/common.sh
+config_s2i
+
+echo "---> Installing application source ..."
+cp -Rf /tmp/src/. ./
+
+echo "---> Building kerneldoc ..."
+make htmldocs
+
+echo "---> Fix permissions ..."
+fix-permissions ./
