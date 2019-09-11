@@ -22,6 +22,7 @@ echo "---> Installing application source ..."
 cp -Rf /tmp/src/. ./
 
 echo "---> Building kerneldoc ..."
+sphinx-build --help
 make htmldocs
 
 echo "---> Fix permissions ..."
