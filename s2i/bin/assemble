@@ -22,9 +22,6 @@ echo "---> Installing application source ..."
 cp -Rf /tmp/src/. ./
 
 echo "---> Building kerneldoc ..."
-pip3 list
-echo $PATH
-which sphinx-build
 make htmldocs
 
 echo "---> Fix permissions ..."
