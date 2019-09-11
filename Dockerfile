@@ -22,7 +22,7 @@ COPY ./etc/kerneldoc-documentroot.conf /etc/httpd/conf.d/
 
 ENV BASH_ENV="/etc/scl_enable"
 
-RUN pip3 install sphinx
+RUN pip3 install sphinx sphinx-rtd-theme
 
 USER 1001
 EXPOSE 8080
