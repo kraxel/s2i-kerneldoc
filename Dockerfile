@@ -12,6 +12,7 @@ USER root
 RUN yum install -y make gcc gcc-c++ binutils bc \
                    glibc-devel openssl-devel \
                    ImageMagick graphviz which \
+                   texlive-tetex \
                    python36 python36-libs python36-pip && \
     yum clean all -y
 
