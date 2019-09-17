@@ -19,10 +19,14 @@ source ${HTTPD_CONTAINER_SCRIPTS_PATH}/common.sh
 config_s2i
 
 echo "---> Installing application source ..."
-cp -Rf /tmp/src/. ./
+cp -Rf /tmp/src ./linux
 
 echo "---> Building kerneldoc ..."
-make htmldocs
+make -C linux htmldocs
+
+echo "---> Move docs output and cleanup ..."
+mv linux/Documentation/output .
+rm -rf linux
 
 echo "---> Fix permissions ..."
 fix-permissions ./
