@@ -19,7 +19,8 @@ source ${HTTPD_CONTAINER_SCRIPTS_PATH}/common.sh
 config_s2i
 
 echo "---> Installing application source ..."
-cp -Rf /tmp/src ./linux
+rm -rf /tmp/src/.git
+mv  /tmp/src ./linux
 
 echo "---> Building kerneldoc ..."
 make -C linux htmldocs
