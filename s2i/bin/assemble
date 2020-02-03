@@ -14,10 +14,6 @@ fi
 
 set -e
 
-echo "---> Enabling s2i support in httpd24 image ..."
-source ${HTTPD_CONTAINER_SCRIPTS_PATH}/common.sh
-config_s2i
-
 echo "---> Installing application source ..."
 rm -rf /tmp/src/.git
 mv  /tmp/src ./linux
@@ -30,4 +26,4 @@ mv linux/Documentation/output .
 rm -rf linux
 
 echo "---> Fix permissions ..."
-fix-permissions ./
+chmod -R +r output
