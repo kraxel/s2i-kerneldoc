@@ -19,6 +19,7 @@ rm -rf /tmp/src/.git
 mv  /tmp/src ./linux
 
 echo "---> Building kerneldoc ..."
+export PYTHON=/usr/bin/python3
 make -C linux htmldocs
 
 echo "---> Move docs output and cleanup ..."
