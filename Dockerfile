@@ -18,7 +18,7 @@ RUN dnf update -y;\
     dnf install -y make gcc gcc-c++ binutils bc \
                    glibc-devel openssl-devel \
                    graphviz which texlive-tetex \
-                   python3-pip && \
+                   python36 python3-pip && \
     dnf clean all -y
 
 COPY ./s2i/bin/ /usr/libexec/s2i
