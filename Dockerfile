@@ -14,11 +14,11 @@ LABEL maintainer="Gerd Hoffmann <kraxel@redhat.com>" \
 
 USER root
 
-RUN dnf update -y;\
+RUN dnf update -y && \
     dnf install -y make gcc gcc-c++ binutils bc \
                    glibc-devel openssl-devel \
                    graphviz which texlive-tetex \
-                   python36 python3-pip && \
+                   python36 python3-pip httpd && \
     dnf clean all -y
 
 COPY ./s2i/bin/ /usr/libexec/s2i
