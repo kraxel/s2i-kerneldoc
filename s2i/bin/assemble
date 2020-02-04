@@ -14,13 +14,15 @@ fi
 
 set -e
 
+export HOME=/opt/app-root/src
+cd $HOME
+
 echo "---> Installing application source ..."
 rm -rf /tmp/src/.git
 mv  /tmp/src ./linux
 
 echo "---> Building kerneldoc ..."
-export PYTHON=/usr/bin/python3
-make -C linux htmldocs
+make PYTHON=/usr/bin/python3 -C linux htmldocs
 
 echo "---> Move docs output and cleanup ..."
 mv linux/Documentation/output .
