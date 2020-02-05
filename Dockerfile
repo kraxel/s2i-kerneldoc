@@ -8,7 +8,7 @@ LABEL maintainer="Gerd Hoffmann <kraxel@redhat.com>" \
       description="${DESCRIPTION}" \
       io.k8s.display-name="${SUMMARY}" \
       io.k8s.description="${DESCRIPTION}" \
-      io.openshift.tags="linux,kerneldoc" \
+      io.openshift.tags="linux,kerneldoc"
 
 USER root
 
