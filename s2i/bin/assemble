@@ -18,4 +18,6 @@ mv linux/Documentation/output .
 rm -rf linux
 
 echo "---> Fix permissions ..."
-chmod -R +r output
+find -type f -print0 | xargs -0 chmod +r
+find -type d -print0 | xargs -0 chmod +r
+find -type d -print0 | xargs -0 chmod +x
