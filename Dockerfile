@@ -12,7 +12,8 @@ LABEL maintainer="Gerd Hoffmann <kraxel@redhat.com>" \
 
 USER root
 
-RUN dnf update -y && \
+RUN source /etc/profile.d/proxy.sh; \
+    dnf update -y && \
     dnf install -y make gcc gcc-c++ binutils bc \
                    glibc-devel openssl-devel \
                    graphviz which texlive-tetex \
