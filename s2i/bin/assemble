@@ -17,7 +17,4 @@ echo "---> Move docs output and cleanup ..."
 mv linux/Documentation/output .
 rm -rf linux
 
-echo "---> Fix permissions ..."
-find -type f -print0 | xargs -0 chmod +r
-find -type d -print0 | xargs -0 chmod +r
-find -type d -print0 | xargs -0 chmod +x
+source ${0}.post
